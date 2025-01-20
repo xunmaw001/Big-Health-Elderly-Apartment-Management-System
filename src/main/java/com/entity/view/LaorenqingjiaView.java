@@ -1,0 +1,36 @@
+package com.entity.view;
+
+import com.entity.LaorenqingjiaEntity;
+
+import com.baomidou.mybatisplus.annotations.TableName;
+import org.apache.commons.beanutils.BeanUtils;
+import java.lang.reflect.InvocationTargetException;
+
+import java.io.Serializable;
+ 
+
+/**
+ * 老人请假
+ * 后端返回视图实体辅助类   
+ * （通常后端关联的表或者自定义的字段需要返回使用）
+ * @author 
+ * @email 
+ * @date 2022-03-10 10:39:40
+ */
+@TableName("laorenqingjia")
+public class LaorenqingjiaView  extends LaorenqingjiaEntity implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	public LaorenqingjiaView(){
+	}
+ 
+ 	public LaorenqingjiaView(LaorenqingjiaEntity laorenqingjiaEntity){
+ 	try {
+			BeanUtils.copyProperties(this, laorenqingjiaEntity);
+		} catch (IllegalAccessException | InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+ 		
+	}
+}
